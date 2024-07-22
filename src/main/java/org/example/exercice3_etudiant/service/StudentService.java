@@ -49,4 +49,12 @@ public class StudentService {
         students.put(student.getId(), student);
     }
 
+    public void updateStudent(UUID id, Student student) {
+        students.put(id, student);
+    }
+
+    public void deleteStudent(UUID id) {
+        students.remove(id);
+    }
+
 }

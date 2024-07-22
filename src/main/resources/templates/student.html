@@ -14,8 +14,15 @@
         <div>Email : <span th:text="${student.getEmail()}"/></div>
     </div>
 
+    <div th:if="${student != null}">
+        <a th:href="@{/delete/{id}(id=${student.getId()})}"> <button class="btn btn-danger">Supprimer l'étudiant</button></a>
+        <a th:href="@{/update/{id}(id=${student.getId()})}"> <button class="btn btn-warning">Modifier l'étudiant</button></a>
+
+    </div>
+
     <a th:href="@{/list}"><button class="btn btn-secondary">Retour à la liste</button></a>
     <a th:href="@{/}"><button class="btn btn-secondary">Retour à l'accueil</button></a>
+
 </div>
 </body>
 </html>
