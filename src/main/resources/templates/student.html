@@ -2,12 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <span th:replace="~{home :: boostrap}"></span>
     <title>Etudiant</title>
 </head>
 <body>
 <div class="container">
-    <h1>Informations de l'étudiant</h1>
-    <div th:if="${student != null}">
+    <h1 class="h1">Informations de l'étudiant</h1>
+    <div th:if="${student != null}" class="border rounded bg-primary-subtle">
         <div><span th:text="${student.getFirstname()}"/> <span th:text="${student.getLastname()}"/></div>
         <div>Âge : <span th:text="${student.getAge()}"/> ans</div>
         <div>Email : <span th:text="${student.getEmail()}"/></div>

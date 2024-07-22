@@ -2,20 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <span th:replace="~{home :: boostrap}"></span>
     <title>Title</title>
 </head>
 <body>
 <div class="container">
-    <h1>Rechercher un étudiant</h1>
+    <h1 class="h1">Rechercher un étudiant</h1>
 
-    <form th:action="@{/result}" method="post">
-        <input type="text" id="name" name="name">
-        <button type="submit" class="btn">Rechercher</button>
+    <form th:action="@{/result}" method="post" class="mb-3">
+        <label for="name" class="form-label">Nom de l'étudiant</label>
+        <input type="text" id="name" name="name" class="form-control">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
     </form>
 
     <div th:if="${result != null}">
 
-        <ul th:each="s : ${result}">
+        <ul th:each="s : ${result}" class="bg-primary-subtle">
             <a th:href="@{/student/{id}(id=${s.getId()})}">
                 <li><span th:text="${s.getFirstname()}"/> <span th:text="${s.getLastname()}"/></li>
             </a>
