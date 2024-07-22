@@ -33,26 +33,14 @@ public class StudentController {
         return "student";
     }
 
-
     @GetMapping("/add")
-    public String addStudent() {
+    public String addStudent(Model model) {
+        model.addAttribute("student", new Student());
         return "register";
     }
 
     @PostMapping("/add")
-    public String addStudent(Model model,
-                             @RequestParam(value = "firstname") String firstname,
-                             @RequestParam(value = "lastname") String lastname,
-                             @RequestParam(value = "age") int age,
-                             @RequestParam(value = "email") String email) {
-
-        Student student = Student.builder()
-                .firstname(firstname)
-                .lastname(lastname)
-                .age(age)
-                .email(email)
-                .build();
-
+    public String addStudent(Model model,@ModelAttribute("student") Student student) {
         studentService.addStudent(student);
         model.addAttribute(student);
         return "student";

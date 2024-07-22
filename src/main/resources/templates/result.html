@@ -7,8 +7,21 @@
 <body>
 <div class="container">
     <h1>Rechercher un étudiant</h1>
-    <input/>
-    <div>Résultat</div>
+
+    <form th:action="@{/result}" method="post">
+        <input type="text" id="name" name="name">
+        <button type="submit" class="btn">Rechercher</button>
+    </form>
+
+    <div th:if="${result != null}">
+
+        <ul th:each="s : ${result}">
+            <a th:href="@{/student/{id}(id=${s.getId()})}">
+                <li><span th:text="${s.getFirstname()}"/> <span th:text="${s.getLastname()}"/></li>
+            </a>
+        </ul>
+    </div>
+    <a th:href="@{/}"><button class="btn btn-secondary">Retour à l'accueil</button></a>
 </div>
 </body>
 </html>

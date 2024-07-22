@@ -35,8 +35,7 @@ public class StudentService {
         return students.values().stream().toList();
     }
     public Student getStudentById(UUID id) {
-        students.get(id);
-        return null;
+        return students.get(id);
     }
 
     public List<Student> getStudentByLastname(String lastname) {
@@ -45,10 +44,9 @@ public class StudentService {
         return result;
     }
 
-    public Student addStudent(Student student) {
+    public void addStudent(Student student) {
         student.setId(UUID.randomUUID());
         students.put(student.getId(), student);
-        return student;
     }
 
 }
