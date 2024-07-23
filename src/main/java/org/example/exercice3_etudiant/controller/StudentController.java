@@ -80,8 +80,7 @@ public class StudentController {
     @PostMapping("/update/{id}")
     public String update(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult, @PathVariable("id") UUID id) {
         if(bindingResult.hasErrors()) {
-            //TODO MODIFIER L'UPDATE
-            return "error/error";
+            return "update";
         } else {
             student.setId(id);
             studentService.updateStudent(student.getId(), student);
