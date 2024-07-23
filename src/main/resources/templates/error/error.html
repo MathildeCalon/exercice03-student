@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <span th:replace="~{home :: boostrap}"></span>
+    <title>Erreur validation</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="h1">Erreur validation</h1>
+    <p>Veuillez corriger votre saisie</p>
+    <a th:href="@{/update/{id}(id=${student.getId()})}"> <button class="btn btn-warning">Modifier l'étudiant</button></a>
+</div>
+</body>
+</html>
